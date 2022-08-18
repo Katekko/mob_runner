@@ -49,6 +49,7 @@ stream = ExtResource("9_yvvjs")
 position = Vector2(240, 360)
 stream = ExtResource("10_3mw5l")
 
+[connection signal="update_difficulty" from="." to="MobPath" method="_on_main_update_difficulty"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_time_timeout"]

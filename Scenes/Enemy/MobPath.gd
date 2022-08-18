@@ -4,6 +4,7 @@ extends Path2D
 var mob_scene : PackedScene
 
 var mobs = []
+var difficulty = 1
 
 func create_mob():
 	# Create a new instance ofthe Mob scene.
@@ -25,8 +26,12 @@ func create_mob():
 	mob.rotation = direction
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity = Vector2(randf_range(150 * difficulty, 250 * difficulty), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
+
+func _on_main_update_difficulty():
+	difficulty += .1
