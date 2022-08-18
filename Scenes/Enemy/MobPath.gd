@@ -33,5 +33,8 @@ func create_mob():
 	add_child(mob)
 
 
-func _on_main_update_difficulty():
-	difficulty += .1
+func _on_main_update_difficulty(diff: int):
+	if(diff != null):
+		difficulty = diff 
+	else:
+		difficulty += .1

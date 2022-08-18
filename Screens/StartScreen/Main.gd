@@ -1,13 +1,15 @@
 extends Node
-signal update_difficulty
+signal update_difficulty(difficulty: int)
 
 var score = 0
-var ammount_difficulty = 0
+var amount_difficulty = 0
 
 func _ready():
 	randomize()
 
 func _on_hud_start_game():
+	amount_difficulty = 0
+	emit_signal("update_difficulty", 1)
 	get_tree().call_group("mobs", "queue_free")
 	update_score(0)
 	$HUD.update_score(score)
@@ -24,7 +26,7 @@ func _on_start_time_timeout():
 	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
-	for n in ammount_difficulty:
+	for n in amount_difficulty:
 		$MobPath.create_mob()
 
 func _on_player_is_dead():
@@ -39,4 +41,4 @@ func update_score(num: int):
 		emit_signal("update_difficulty")
 	
 	if(score % 30 == 0):
-		ammount_difficulty += 1
+		amount_difficulty += 1
