@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc2gwky5aj54v"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/Enemy.gd" id="1_6gqhc"]
+[ext_resource type="Texture2D" uid="uid://bfa468nknmhkp" path="res://Assets/Enemy/enemyFlyingAlt_1.png" id="2_buj4n"]
+[ext_resource type="Texture2D" uid="uid://deddjvxv6kjvm" path="res://Assets/Enemy/enemyFlyingAlt_2.png" id="3_3w7cc"]
+[ext_resource type="Texture2D" uid="uid://r1xjgv0qgcp3" path="res://Assets/Enemy/enemySwimming_1.png" id="4_i4cuv"]
+[ext_resource type="Texture2D" uid="uid://cb7vda3aagmvy" path="res://Assets/Enemy/enemySwimming_2.png" id="5_5p0f4"]
+[ext_resource type="Texture2D" uid="uid://dt7df012xxte3" path="res://Assets/Enemy/enemyWalking_1.png" id="6_kabis"]
+[ext_resource type="Texture2D" uid="uid://ccqhd1hgq03hx" path="res://Assets/Enemy/enemyWalking_2.png" id="7_np6yp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e542o"]
+animations = [{
+"frames": [ExtResource("2_buj4n"), ExtResource("3_3w7cc")],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [ExtResource("4_i4cuv"), ExtResource("5_5p0f4")],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [ExtResource("6_kabis"), ExtResource("7_np6yp")],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqyyh"]
+
+[node name="Enemy" type="RigidDynamicBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_6gqhc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+frames = SubResource("SpriteFrames_e542o")
+animation = &"swim"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(5.32, 3.68)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.57079
+scale = Vector2(3.52282, -3.40489)
+shape = SubResource("CapsuleShape2D_fqyyh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://be1agpbq8p0xr"]
+
+[ext_resource type="Script" path="res://HUD/Background/Background.gd" id="1_nrlg8"]
+
+[node name="Background" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.00392157, 0, 0.00392157, 1)
+script = ExtResource("1_nrlg8")
+
+[node name="ChangeColorTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="timeout" from="ChangeColorTimer" to="." method="_on_change_color_timer_timeout"]
