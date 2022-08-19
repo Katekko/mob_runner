@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Screens/StartScreen/Main.gd" id="1_11n2e"]
 [ext_resource type="PackedScene" uid="uid://cfftx1qlxw1vq" path="res://Scenes/Player/Character/Player.tscn" id="1_vn5w1"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemy/MobPath.tscn" id="4_7jbqc"]
+[ext_resource type="PackedScene" uid="uid://oyy0ewbplulf" path="res://Scenes/Enemy/MobPath.tscn" id="4_7jbqc"]
 [ext_resource type="PackedScene" uid="uid://dfxmbmpknqpiu" path="res://HUD/HUD.tscn" id="5_jv3o3"]
 [ext_resource type="PackedScene" uid="uid://be1agpbq8p0xr" path="res://HUD/Background/Background.tscn" id="8_2f3j6"]
 [ext_resource type="AudioStream" uid="uid://dmgyjg4qp5uch" path="res://Assets/Sounds/House In a Forest Loop.ogg" id="9_yvvjs"]
@@ -16,10 +16,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -248.0
-offset_top = -368.0
-offset_right = 248.0
-offset_bottom = 368.0
+offset_left = -260.0
+offset_top = -460.0
+offset_right = 260.0
+offset_bottom = 460.0
 color = Color(0.666667, 0.67451, 0.670588, 0)
 
 [node name="MobTimer" type="Timer" parent="."]
