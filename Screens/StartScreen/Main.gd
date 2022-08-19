@@ -26,8 +26,7 @@ func _on_start_time_timeout():
 	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
-	for n in amount_difficulty:
-		$MobPath.create_mob()
+	$MobPath.create_mob()
 
 func _on_player_is_dead():
 	$ScoreTimer.stop()
@@ -41,4 +40,4 @@ func update_score(num: int):
 		emit_signal("update_difficulty")
 	
 	if(score % 30 == 0):
-		amount_difficulty += 1
+		$MobTimer.wait_time -= .08
