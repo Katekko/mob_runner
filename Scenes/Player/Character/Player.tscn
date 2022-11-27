@@ -30,7 +30,6 @@ script = ExtResource("1_bulg5")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 frames = SubResource("SpriteFrames_u56ao")
-animation = &"invencible"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.42526, 2.28)

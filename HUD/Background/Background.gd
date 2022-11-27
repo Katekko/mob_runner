@@ -3,9 +3,6 @@ extends ColorRect
 func _ready():
 	self.color = Color8(1, 0, 1)
 
-func _process(delta):
-	pass
-
 func start_timer_random_color():
 	$ChangeColorTimer.start()
 

@@ -32,9 +32,12 @@ func create_mob():
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
+func _on_main_add_difficulty(diff: int):
+	difficulty += diff
 
-func _on_main_update_difficulty(diff: int):
-	if(diff != null):
-		difficulty = diff 
-	else:
-		difficulty += .1
+func _on_main_replace_difficulty(diff: int):
+	difficulty = diff 
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
